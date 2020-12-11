@@ -8,15 +8,13 @@ public class Reader{
         	FileReader fr = new FileReader(file);
         	BufferedReader br = new BufferedReader(fr);
         	String line = "";
-        	String[] tempArr;
+        	String[]tempArr;
         	while((line = br.readLine()) != null) {
         		tempArr = line.split(delimiter);
-            	for(String tempStr : tempArr) {
-               		System.out.print(tempStr + " ");
-               		for(String temp2Str : tempArr){
-               			System.out.print(temp2Str + " ");
-               		}
-            	}
+            	Graph g = new Graph();
+				int city1 = g.addCity(tempArr[0]);//adds upon list
+            	int city2 = g.addCity(tempArr[1]);
+            	g.addEdge(city1,city2,Integer.parseInt(tempArr[2]));
             	System.out.println();
         	}
         	br.close();
@@ -24,6 +22,7 @@ public class Reader{
         catch(IOException ioe) {
         	ioe.printStackTrace();
         }
+
    }
    public static void main(String[] args) {
       // csv file to read

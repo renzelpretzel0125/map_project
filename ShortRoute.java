@@ -1,134 +1,121 @@
-//use for Djikstra's Algorithm
-
+import java.util.LinkedList;
 import java.util.*; 
 public class ShortRoute{ 
     public int dist[]; 
     public Set<Integer> settled; 
-    public PriorityQueue<Node> pq; 
+    public PriorityQueue<City> pq; 
     public int cities; // Number of cities 
-    List<List<Node> > adj; 
+    LinkedList<LinkedList<City>> adj; 
   
-    public DPQ(int cities) 
+    public ShortRoute(int cities) 
     { 
         this.cities = cities; 
         dist = new int[cities]; 
         settled = new HashSet<Integer>(); 
-        pq = new PriorityQueue<Node>(cities, new Node()); 
+        pq = new PriorityQueue<City>(cities, new City()); 
     } 
   
     // Function for Dijkstra's Algorithm 
-    public void dijkstra(List<List<Node> > adj, int src) 
+    public void dijkstra(LinkedList<LinkedList<City>> adj, int origin) 
     { 
         this.adj = adj; 
   
-        for (int i = 0; i < V; i++) 
+        for (int i = 0; i < cities; i++) 
             dist[i] = Integer.MAX_VALUE; 
   
-        // Add source node to the priority queue 
-        pq.add(new Node(src, 0)); 
+        // Add original city to the priority queue 
+        pq.add(new City(origin, 0)); 
   
-        // Distance to the source is 0 
-        dist[src] = 0; 
-        while (settled.size() != V) { 
+        // Distance to origin is 0 
+        dist[origin] = 0; 
+        while (settled.size() != cities) { 
   
-            // remove the minimum distance node  
-            // from the priority queue  
-            int u = pq.remove().node; 
+            // remove the minimum distance of city from the priority queue  
+            int u = pq.remove().city; 
   
-            // adding the node whose distance is 
-            // finalized 
+            // adding the city whose distance is finalized 
             settled.add(u); 
   
-            e_Neighbours(u); 
+            NearCity(u); 
         } 
     } 
   
-    // Function to process all the neighbours  
-    // of the passed node 
-    private void e_Neighbours(int u) 
+    //Processes all the neighbours of the passed city 
+    private void NearCity(int u) 
     { 
         int edgeDistance = -1; 
         int newDistance = -1; 
   
-        // All the neighbors of v 
+        //All the neighbors of a city
         for (int i = 0; i < adj.get(u).size(); i++) { 
-            Node cities = adj.get(u).get(i); 
+            City c = adj.get(u).get(i); 
   
-            // If current node hasn't already been processed 
-            if (!settled.contains(cities.node)) { 
-                edgeDistance = cities.cost; 
+            //If current node hasn't already been processed 
+            if (!settled.contains(c.city)) { 
+                edgeDistance = c.dist; 
                 newDistance = dist[u] + edgeDistance; 
   
                 // If new distance is cheaper in cost 
-                if (newDistance < dist[cities.node]) 
-                    dist[v.node] = newDistance; 
+                if (newDistance < dist[c.city]) 
+                    dist[c.city] = newDistance; 
   
                 // Add the current node to the queue 
-                pq.add(new Node(cities.node, dist[cities.node])); 
+                pq.add(new City(c.city,dist[c.city])); 
             } 
         } 
     } 
-  
-    // Driver code 
+    
     public static void main(String arg[]) 
     { 
         int cities = 5; 
-        int source = 0; 
+        int origin = 0; 
   
-        // Adjacency list representation of the  
-        // connected edges 
-        List<List<Node> > adj = new ArrayList<List<Node> >(); 
+        LinkedList<LinkedList<City> > adj = new LinkedList<LinkedList<City>>(); 
   
-        // Initialize list for every node 
+        // Initialize LinkedList for every city  
         for (int i = 0; i < cities; i++) { 
-            List<Node> item = new ArrayList<Node>(); 
+            LinkedList<City> item = new LinkedList<City>(); 
             adj.add(item); 
         } 
   
-        // Inputs for the DPQ graph 
-        adj.get(0).add(new Node(1, 9)); 
-        adj.get(0).add(new Node(2, 6)); 
-        adj.get(0).add(new Node(3, 5)); 
-        adj.get(0).add(new Node(4, 3)); 
-  
-        adj.get(2).add(new Node(1, 2)); 
-        adj.get(2).add(new Node(3, 4)); 
+        // Inputs for the map graph 
+        //Graph g = new Graph();
+        adj.get(0).add(new City(g.getCity(),g.getDist())); 
   
         // Calculate the single source shortest path 
-        DPQ dpq = new DPQ(cities); 
-        dpq.dijkstra(adj, source); 
+        ShortRoute sr = new ShortRoute(cities); 
+        sr.dijkstra(adj, origin); 
   
-        // Print the shortest path to all the nodes 
-        // from the source node 
-        System.out.println("The shorted path from node :"); 
-        for (int i = 0; i < dpq.dist.length; i++) 
-            System.out.println(source + " to " + i + " is "
-                               + dpq.dist[i]); 
+        // Print the shortest path for the cities from the original city. 
+        System.out.println("The shorted path between cities:"); 
+        for (int i = 0; i < sr.dist.length; i++) 
+            System.out.println("From City "+ origin + " to " + i + " in the shortest path would be:"
+                               + sr.dist[i]); 
     } 
 } 
   
-// Class to represent a node in the graph 
-class Node implements Comparator<Node> { 
-    public int node; 
-    public int cost; 
+// Class to represent the city in the graph 
+class City implements Comparator<City> { 
+    public int city; 
+    public int dist; 
   
-    public Node() 
+    public City() 
     { 
     } 
   
-    public Node(int node, int cost) 
+    public City(int city, int dist) 
     { 
-        this.node = node; 
-        this.cost = cost; 
+        this.city = city; 
+        this.dist = dist; 
     } 
-  
-    @Override
-    public int compare(Node node1, Node node2) 
+    public int compare(City c1, City c2) 
     { 
-        if (node1.cost < node2.cost) 
+        if (c1.dist < c2.dist){ 
             return -1; 
-        if (node1.cost > node2.cost) 
+        }
+        if (c1.dist > c2.dist){ 
             return 1; 
+        }
         return 0; 
     } 
 } 
