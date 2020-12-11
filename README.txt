@@ -1,3 +1,4 @@
+//Still a Work in Progress, Hopefully finish by Friday
 Revised and Final Design:
 Reader Class:  
 to read both csv files, that can be used to send into a linked list/adjacency list
