@@ -43,13 +43,19 @@ public class Attractions<L,A> {
 		return null;
 	}
 
-	public A add(loaction,attraction){
+	public A add(location,attraction){
 		//check if the key is exist, get list of attraction places, then update list with attarction
-		
+		if(location!=null){
+			bucketArray.add(location);
+		}else{
+			return null;
+		}
 	}
 	public A remove(location){
 		//check for key, remove attract from list,
-
+		if(location!=null){
+			bucketArray.remove(location);
+		}
 	}
 
 
