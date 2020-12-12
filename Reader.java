@@ -14,7 +14,8 @@ public class Reader{
             	Graph g = new Graph();
 				int city1 = g.addCity(tempArr[0]);//adds upon list
             	int city2 = g.addCity(tempArr[1]);
-            	g.addEdge(city1,city2,Integer.parseInt(tempArr[2]));
+            	int weight = Integer.parseInt(tempArr[2]);
+            	g.addEdge(city1,city2,weight)
             	System.out.println();
         	}
         	br.close();

@@ -79,7 +79,7 @@ public class ShortRoute{
         } 
   
         // Inputs for the map graph 
-        //Graph g = new Graph();
+        Graph g = new Graph();
         adj.get(0).add(new City(g.getCity(),g.getDist())); 
   
         // Calculate the single source shortest path 

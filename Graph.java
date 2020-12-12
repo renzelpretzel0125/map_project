@@ -26,7 +26,8 @@ public class Graph{
 		try{
 			if(cities.containsKey(city)){
 				//cityMap.add(city);
-				cities.put(city, count++);
+				int ec = cities.get(city);
+				cities.put(city, ec+1);
 			}else{
 				cities.put(city,count);
 			}
@@ -56,7 +57,9 @@ public class Graph{
 		return -1;  
 
 	}
-
+	public int getEdge(int weight){
+		return weight;
+	}
 	/*public boolean hasCity(String c){
 		if(c.compareTo(0)>0){
 			return true;
