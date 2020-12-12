@@ -69,11 +69,11 @@ public class Graph{
 		
 	}*/
 
-	/*public void removeCities(){
-		/*if(){
+	public void removeCities(city){
+		if(){
 
 		}
-	}*/
+	}
 
 	//To Test the Graphing
 	public static void main(String[]args){

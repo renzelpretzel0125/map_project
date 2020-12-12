@@ -69,7 +69,8 @@ public class ShortRoute{
     { 
         int cities = 5; 
         int origin = 0; 
-  
+  		Graph g = new Graph();
+  		Attractions a = new Attractions
         LinkedList<LinkedList<City> > adj = new LinkedList<LinkedList<City>>(); 
   
         // Initialize LinkedList for every city  
@@ -79,7 +80,6 @@ public class ShortRoute{
         } 
   
         // Inputs for the map graph 
-        Graph g = new Graph();
         adj.get(0).add(new City(g.getCity(),g.getDist())); 
   
         // Calculate the single source shortest path 
