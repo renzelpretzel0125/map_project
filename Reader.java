@@ -10,21 +10,21 @@ public class Reader{
         	String line = "";
         	String[]roadsArr;
         	String[]attractionsArr;
-        	if(csvFile == roads){//if 
+        	if(csvFile == "roads"){//if files were roads, then will read through roads and put into an adjacency list 
         		while((line = br.readLine()) != null) {
         			roadsArr = line.split(delimiter);
             		Graph g = new Graph();
 					int city1 = g.addCity(roadsArr[0]);//adds to adjacency list
             		int city2 = g.addCity(roadsArr[1]);
             		int weight = Integer.parseInt(roadsArr[2]);
-            		g.addEdge(city1,city2,weight)
+            		g.addEdge(city1,city2,weight);
             		System.out.println();
         		}
         		br.close();
         	}
-        	if(csvFile == attractions){
+        	if(csvFile == "attractions"){//if csv files were from attractions, put into hashtables
         		while((line = br.readLine()) != null) {
-        			tempArr = line.split(delimiter);
+        			roadsArr = line.split(delimiter);
             		Attractions a = new Attractions(attractionArr[0],attractionArr[1]);//to bring location and attractions to hashtable
 					int location = a.add(attractionArr[0]);//adds upon into hashtable for location 
             		int attraction = a.add(attractionArr[1]);//adds attractions into hashtable
