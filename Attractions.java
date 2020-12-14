@@ -1,5 +1,5 @@
 //hashtables for attractions
-import java.util.Array;
+import java.util.*;
 public class Attractions<L,A> {
 	// Storage for items
 	private ArrayList<HashNode<L, A>> bucketArray;
@@ -13,14 +13,14 @@ public class Attractions<L,A> {
 	//Constructor
 	public Attractions(){
  		numBuckets = 11;
- 		bucketArray = newArrayList<HashNode<L, A>>();
+ 		bucketArray = new ArrayList<HashNode<L, A>>();
  		// Create empty chains
  		for (int i = 0; i < numBuckets; i++){
  			bucketArray.add(null);
  		}
  	}
  	//to ensure locations returns a valid array position
- 	private getBucketIndex (L location) {
+ 	private A getBucketIndex (L location) {
 		// Call Java's hashCode... or another function
 		int hashCode = location.hashCode();
 		// Every now and again, hashCode returns a negative value
@@ -43,7 +43,7 @@ public class Attractions<L,A> {
 		return null;
 	}
 
-	public A add(location,attraction){
+	public A add(L location, A attraction){
 		//check if the key is exist, get list of attraction places, then update list with attarction
 		if(location!=null){
 			bucketArray.add(location);
@@ -51,7 +51,7 @@ public class Attractions<L,A> {
 			return null;
 		}
 	}
-	public A remove(location){
+	public A remove(L location){
 		//check for key, remove attract from list,
 		if(location!=null){
 			bucketArray.remove(location);
@@ -65,7 +65,7 @@ class HashNode<L, A> {
 	L location;//key
 	A attraction;//value
 	HashNode<L, A> next;
-	public HashNode<L location, A attraction){
+	public HashNode<L, A>{
 		this.location = location;
 		this.attraction = attraction;
 	}

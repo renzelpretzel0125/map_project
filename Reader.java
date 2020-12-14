@@ -25,9 +25,9 @@ public class Reader{
         	if(csvFile == "attractions"){//if csv files were from attractions, put into hashtables
         		while((line = br.readLine()) != null) {
         			roadsArr = line.split(delimiter);
-            		Attractions a = new Attractions(attractionArr[0],attractionArr[1]);//to bring location and attractions to hashtable
-					int location = a.add(attractionArr[0]);//adds upon into hashtable for location 
-            		int attraction = a.add(attractionArr[1]);//adds attractions into hashtable
+            		Attractions a = new Attractions(attractionsArr[0],attractionsArr[1]); //to bring location and attractions to hashtable
+					int location = a.add(attractionsArr[0]);//adds upon into hashtable for location 
+            		int attraction = a.add(attractionsArr[1]);//adds attractions into hashtable
             		System.out.println();
         		}
         		br.close();

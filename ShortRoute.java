@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.*; 
 public class ShortRoute{ 
     public int dist[]; 
@@ -70,8 +69,8 @@ public class ShortRoute{
         int cities = 5; 
         int origin = 0; 
   		Graph g = new Graph();
-  		Attractions a = new Attractions
-        LinkedList<LinkedList<City> > adj = new LinkedList<LinkedList<City>>(); 
+  		Attractions a = new Attractions;
+        LinkedList<LinkedList<City>> adj = new LinkedList<LinkedList<City>>(); 
   
         // Initialize LinkedList for every city  
         for (int i = 0; i < cities; i++) { 
@@ -89,8 +88,7 @@ public class ShortRoute{
         // Print the shortest path for the cities from the original city. 
         System.out.println("The shorted path between cities:"); 
         for (int i = 0; i < sr.dist.length; i++) 
-            System.out.println("From City "+ origin + " to " + i + " in the shortest path would be:"
-                               + sr.dist[i]); 
+            System.out.println("From City "+ origin + " to " + i + " in the shortest path would be:" + sr.dist[i]); 
     } 
 } 
   
