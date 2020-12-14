@@ -1,4 +1,5 @@
-//Still a Work in Progress, Hopefully finish by Satuday or Sunday, made a lot of progress Friday
+//Still a Work in Progress, Hopefully finish by Monday, made a lot of progress Friday some Saturday and Sunday
+
 Revised and Final Design:
 Reader Class:  
 to read both csv files, that can be used to send into a linked list/adjacency list
