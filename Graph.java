@@ -60,6 +60,10 @@ public class Graph{
 	public int getEdge(int weight){
 		return weight;
 	}
+	public String getCity(String city){
+		return city;
+	}
+	
 	/*public boolean hasCity(String c){
 		if(c.compareTo(0)>0){
 			return true;
