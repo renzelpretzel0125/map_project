@@ -26,8 +26,7 @@ public class Graph{
 		try{
 			if(cities.containsKey(city)){
 				//cityMap.add(city);
-				int ec = cities.get(city);
-				cities.put(city, ec+1);
+				cities.put(city, count++);
 			}else{
 				cities.put(city,count);
 			}
@@ -38,7 +37,7 @@ public class Graph{
 		}
 		return -1;
 	}
-	public int addEdge(int v1, int v2, int weight){
+	public void addEdge(int v1, int v2, int weight){
 		//returns the distance
 		//bidirectional 
 		Weightedg w = new Weightedg(weight, v2);
@@ -52,9 +51,7 @@ public class Graph{
     		for(Weightedg o : sublist) {
         		System.out.println(o.weight+" "+o.vertex);
     		}
-		}	
-
-		return -1;  
+		}	  
 
 	}
 	public int getEdge(int weight){
@@ -62,6 +59,22 @@ public class Graph{
 	}
 	public String getCity(String city){
 		return city;
+	}
+
+	public void removeEdge(int v1, int v2){
+		for (int i = 0; i < adjacencyList[v1].size(); i++){
+        	if (adjacencyList[v1].get(i) == v2){
+            	adjacencyList[v1].remove(i);
+            	break;
+        	}
+    	}
+
+	    for (int j = 0; j < adjacencyList[v2].size(); jj++){
+	        if (adjacencyList[v2].get(j) == v1){
+	            adjacencyList[v2].remove(j);
+	            break;
+	        }
+    	}
 	}
 	
 	/*public boolean hasCity(String c){
@@ -71,13 +84,8 @@ public class Graph{
 			return false;
 		}
 		
-	}
-
-	//public void removeCities(city){
-		if(){
-
-		}
 	}*/
+
 
 	//To Test the Graphing
 	public static void main(String[]args){
@@ -89,4 +97,4 @@ public class Graph{
         g.addEdge(city1,city2,Integer.parseInt(tempArr[2]));
         //Abilene TX	Austin TX	217
 	}
-} 
+}

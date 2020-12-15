@@ -19,7 +19,7 @@ public class Reader{
             		int city2 = g.addCity(roadsArr[1]);
             		int weight = Integer.parseInt(roadsArr[2]);
             		g.addEdge(city1,city2,weight);
-            		System.out.println();
+            		System.out.println(g.getEdge(weight));
         		}
         		br.close();
         	}
@@ -32,7 +32,7 @@ public class Reader{
             		//^^uses my own hashtable, will try using hashtable by java
             		Hashtable<String,String> attraction = new Hashtable<>();
             		attraction.put(roadsArr[0],roadsArr[1]);
-            		System.out.println();
+            		System.out.println(attraction);
         		}
         		br.close();
         	}
