@@ -1,5 +1,3 @@
-//Still a Work in Progress, Hopefully finish by Thursday, made a lot of progress Friday,Saturday,Sunday, and Monday sorry for pushing dates further as I don't truly know when I can honestly finish this project as theres so many things needs implementing from design as I might be overthinking this. 
-//Please email me back at rtgalvez@dons.usfca.edu when it'll be time to grade it and I'll still do my best. Thank you.
 Revised and Final Design:
 Reader Class:  
 to read both csv files, that can be used to send into a linked list/adjacency list
