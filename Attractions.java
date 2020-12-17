@@ -8,7 +8,7 @@ public class Attractions<L,A> {
 	// Number of items stored in Hashtable
 	private int size;
 	// Beyond this ratio (items / capacity), resize
-	private static final float LAMBDA = 0.75;
+	//private static final float LAMBDA = 0.75;
 
 	//Constructor
 	public Attractions(){
@@ -61,12 +61,13 @@ public class Attractions<L,A> {
 
 
 }
-class HashNode<L, A> {
-	L location;//key
-	A attraction;//value
+
+class HashNode<L, A>{
+	public L location;//key
+	public A attraction;//value
 	HashNode<L, A> next;
-	public HashNode<L, A>{
-		this.location = location;
+	public HashNode<L location, A attraction>{ //constructor
+		this.location = location; 
 		this.attraction = attraction;
 	}
 }

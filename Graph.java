@@ -12,7 +12,7 @@ public class Graph{
 		}
 
 	}
-	private LinkedList<LinkedList<Weightedg>> adjacencyList; 
+	private LinkedList<LinkedList<Weightedg>>adjacencyList; 
 	private Hashtable<String, Integer> cities;
 	//private LinkedList<LinkedList<>>cityMap;
 	private int count;
@@ -61,21 +61,23 @@ public class Graph{
 		return city;
 	}
 
-	public void removeEdge(int v1, int v2){
-		for (int i = 0; i < adjacencyList[v1].size(); i++){
-        	if (adjacencyList[v1].get(i) == v2){
-            	adjacencyList[v1].remove(i);
+	/*public void removeEdge(int v1, int v2){
+		String[]Array;
+		Array = new String[Array.size()];
+		for (int i = 0; i < Array[v1].size(); i++){
+        	if (Array[v1].get(i) == v2){
+            	Array[v1].remove(i);
             	break;
         	}
     	}
 
-	    for (int j = 0; j < adjacencyList[v2].size(); jj++){
-	        if (adjacencyList[v2].get(j) == v1){
-	            adjacencyList[v2].remove(j);
+	    for (int j = 0; j < Array[v2].size(); jj++){
+	        if (Array[v2].get(j) == v1){
+	            Array[v2].remove(j);
 	            break;
 	        }
     	}
-	}
+	}*/
 	
 	/*public boolean hasCity(String c){
 		if(c.compareTo(0)>0){

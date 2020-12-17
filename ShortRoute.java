@@ -69,7 +69,7 @@ public class ShortRoute{
         int cities = 5; 
         int origin = 0; 
   		Graph g = new Graph();
-  		Attractions a = new Attractions;
+  		Attractions a = new Attractions();
         LinkedList<LinkedList<City>> adj = new LinkedList<LinkedList<City>>(); 
   
         // Initialize LinkedList for every city  
