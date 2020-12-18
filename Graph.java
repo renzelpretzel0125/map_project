@@ -14,7 +14,7 @@ public class Graph{
 	}
 	private LinkedList<LinkedList<Weightedg>>adjacencyList; 
 	private Hashtable<String, Integer> cities;
-	//private LinkedList<LinkedList<>>cityMap;
+	private LinkedList<LinkedList<Weightedg>>cityMap;
 	private int count;
 	public Graph(){ 
 		adjacencyList = new LinkedList<LinkedList<Weightedg>>(); 
@@ -22,7 +22,7 @@ public class Graph{
 		count = 0;
 	}
 	
-	public int addCity(String city){//addVertices
+	public int addCity(String city){//add Vertices
 		try{
 			if(cities.containsKey(city)){
 				//cityMap.add(city);
@@ -49,7 +49,7 @@ public class Graph{
 		mainList.add(innerlist);
 		for(LinkedList<Weightedg> sublist : mainList) {
     		for(Weightedg o : sublist) {
-        		System.out.println(o.weight+" "+o.vertex);
+        		System.out.println("Edge: "+o.weight+" "+o.vertex);
     		}
 		}	  
 
@@ -95,7 +95,7 @@ public class Graph{
 		String[] tempArr = new String[]{"Abilene TX","Austin TX","217"};//line.split(delimiter);
         int city1 = g.addCity(tempArr[0]);//adds upon list
         int city2 = g.addCity(tempArr[1]);//adds upon 
-        System.out.println(city1+" "+city2);
+        System.out.println("City: "+city1+" "+city2);
         g.addEdge(city1,city2,Integer.parseInt(tempArr[2]));
         //Abilene TX	Austin TX	217
 	}
