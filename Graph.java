@@ -54,7 +54,7 @@ public class Graph{
 		}	  
 
 	}
-	public int getEdge(int weight){
+	public int getDist(int weight){
 		return weight;
 	}
 	public String getCity(String city){
